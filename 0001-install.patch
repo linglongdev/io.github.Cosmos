@@ -1,0 +1,49 @@
+From 4855874beef0a277e4dce1c550a4b13748cf0a67 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Thu, 19 Sep 2024 12:10:08 +0800
+Subject: [PATCH] install
+
+---
+ Cosmos.desktop | 11 +++++++++++
+ Cosmos.pro     |  8 ++++++++
+ 2 files changed, 19 insertions(+)
+ create mode 100644 Cosmos.desktop
+
+diff --git a/Cosmos.desktop b/Cosmos.desktop
+new file mode 100644
+index 0000000..b075854
+--- /dev/null
++++ b/Cosmos.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=Cosmos
++Name=Cosmos
++Name[zh_CN]=Cosmos
++Icon=splash2
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=Cosmos
++Version=1.0
+\ No newline at end of file
+diff --git a/Cosmos.pro b/Cosmos.pro
+index 973d706..002127d 100644
+--- a/Cosmos.pro
++++ b/Cosmos.pro
+@@ -79,3 +79,11 @@ RESOURCES += \
+     cosmos_music.qrc \
+     audio_level_one.qrc \
+     level_one_music.qrc
++
++target.path = $$PREFIX/bin
++desktop.files = Cosmos.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons/hicolor/apps/
++icons.files = images/splash2.png
++
++INSTALLS += target desktop icons
+\ No newline at end of file
+-- 
+2.43.4
+
