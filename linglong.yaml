@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.Cosmos
+  name: Cosmos
+  version: 0.0.0.1
+  kind: app
+  description: |
+    Cosmos Game
+
+command:
+  - /opt/apps/io.github.Cosmos/files/bin/Cosmos
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/kn0w0n3/Cosmos.git
+    version: master
+    commit: de97c34889a591781fb4537a43d3d8ca3099ca42
+
+build: |
+  cd /project/linglong/sources/Cosmos.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
